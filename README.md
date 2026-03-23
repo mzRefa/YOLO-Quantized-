@@ -1,63 +1,37 @@
-# 🚀 Quantized YOLO Implementation
+# ⚡ YOLO-Quantized: Edge-Optimized Object Detection
 
-A lightweight and efficient implementation of a quantized YOLO (You Only Look Once) pipeline, designed for faster inference and reduced resource usage.
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg) 
+![YOLOv11](https://img.shields.io/badge/YOLO-v11-red.svg)
+![OpenCV](https://img.shields.io/badge/OpenCV-4.x-orange.svg)
+![Optimization](https://img.shields.io/badge/Optimization-Quantized-green.svg)
 
-This project is structured into multiple phases to simplify setup, experimentation, and deployment.
-
-
----
-
-
-## ⚙️ Features
-
-* ⚡ **Quantized YOLO model** for faster inference.
-* 🧠 **Reduced memory footprint** compared to standard models.
-* 🔄 **Modular pipeline** split into clear development phases.
-* 🧪 **Easy experimentation** and debugging.
-* 💻 **Low-resource optimized** for systems like the i5-7200U.
-
+**YOLO-Quantized** is a specialized computer vision repository focused on maximizing inference speeds for real-time object detection. By leveraging quantized weights and lightweight neural architectures, this project achieves high-FPS detection on standard CPU hardware without the need for dedicated GPUs.
 
 ---
 
+## 🚀 Performance Breakthroughs
 
-## 📊 Why Quantization?
+### 🔹 Model Quantization
+This repo focuses on the transition from **FP32 (Floating Point 32)** to more efficient formats. This reduces the model size and significantly speeds up the mathematical operations (tensor multiplication) required for detection, making it ideal for mobile and IoT devices.
 
-Quantization helps by converting 32-bit floats to 8-bit integers, which allows:
+### 🔹 Real-Time Neural Perception
+Using the latest **YOLO11 Nano** architecture, the system is tuned for ultra-low latency. It is capable of identifying 80+ object classes in milliseconds, balancing the trade-off between Mean Average Precision (mAP) and computational cost.
 
-1.  **Reduced Model Size:** Saves storage and bandwidth.
-2.  **Improved Inference Speed:** Faster processing on standard CPUs.
-3.  **Edge Deployment:** Enables use on devices like Raspberry Pi or older laptops.
-
-
----
-
-
-## 🧩 How It Works
-
-### 🔹 Phase 1 – Setup & Preparation
-The `phase1.py` script handles the initial heavy lifting:
-* Environment setup and dependency checking.
-* Model loading and conversion to TFLite format.
-* The **Quantization process** (INT8 calibration).
-* Preprocessing configuration for input layers.
-
-<br>
-
-### 🔹 Phase 2 – Detection Pipeline
-The `phase2.py` script manages the real-time execution:
-* Running the optimized YOLO model on live video.
-* Performing real-time object detection (e.g., Person, Cell Phone).
-* Post-processing predictions and Non-Maximum Suppression (NMS).
-* Real-time visualization of bounding boxes and FPS.
-
+### 🔹 Hardware Agnostic Deployment
+While most YOLO implementations "choke" on standard laptop CPUs, this version is optimized for:
+* **Intel/AMD CPUs** via OpenVINO-ready logic.
+* **Apple Silicon** via CoreML-compatible pathways.
+* **Standard Webcams** with zero-lag stream processing.
 
 ---
 
+## 📂 Repository Structure
 
-## 🚀 Getting Started
-
-1. **Run Phase 1** to convert and quantize the model:
-   `python3 phase1.py`
-
-2. **Run Phase 2** to start the detection feed:
-   `python3 phase2.py`
+```text
+.
+├──  Models                # Quantized .pt and .onnx weights
+│   └── yolo11n.pt          # Nano-scale weights for edge speed
+├──  Scripts               # Production-ready detection logic
+│   └── yolo_vision.py      # Main real-time inference engine
+├──  requirements.txt       # Optimized dependency list
+└──  LICENSE                # MIT License

@@ -1,0 +1,14 @@
+# Core AI Engine (YOLOv11 & Tracking)
+ultralytics>=8.3.0
+
+# Computer Vision & Image Processing
+opencv-python>=4.8.0
+numpy>=1.24.0
+
+# Quantization & Model Export
+onnx>=1.14.0
+onnxruntime>=1.15.0
+
+# Utilities
+tqdm>=4.65.0
+PyYAML>=6.0.0

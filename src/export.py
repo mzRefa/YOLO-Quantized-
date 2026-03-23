@@ -1,21 +1,15 @@
 from ultralytics import YOLO
 
-def export_quantized_model(model_path):
-    """
-    Converts a standard PyTorch model (.pt) into an optimized, 
-    quantized ONNX format for high-speed CPU inference.
-    """
-    # 1. Load the standard model
-    model = YOLO(model_path)
+def export_v8_quantized():
+    
+    model = YOLO("models/yolov8n.pt") 
 
-    print(f"🚀 Starting quantization for: {model_path}")
-
-    # 2. Export to ONNX format with INT8 quantization
-    # 'int8=True' is the magic part that compresses the math
-    path = model.export(format="onnx", int8=True)
-
-    print(f"✅ Export Complete! Optimized model saved at: {path}")
+    print("🚀 Quantizing YOLOv8n to INT8 ONNX...")
+    
+   
+    model.export(format="onnx", int8=True)
+    
+    print("✅ Done! Check your 'models' folder for the .onnx file.")
 
 if __name__ == "__main__":
-    # Point this to the model you have in your models/ folder
-    export_quantized_model("models/yolo11n.pt")
+    export_v8_quantized()
